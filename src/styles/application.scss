@@ -1,0 +1,62 @@
+// PARTIALS
+@import 'partials/variables';
+@import 'partials/base';
+@import 'partials/mixins';
+
+@each $size in $font-sizes {
+  .font-size-#{$size} {
+    font-size: #{$size}px;
+  }
+}
+
+@each $margin in $margins {
+  .margin-top-#{$margin} {
+    margin-top: #{$margin}px;
+  }
+
+  .margin-right-#{$margin} {
+    margin-right: #{$margin}px;
+  }
+
+  .margin-bottom-#{$margin} {
+    margin-bottom: #{$margin}px;
+  }
+
+  .margin-left-#{$margin} {
+    margin-left: #{$margin}px;
+  }
+
+  .margin-left-right-#{$margin} {
+    margin: 0 #{$margin}px;
+  }
+
+  .margin-top-bottom-#{$margin} {
+    margin: #{$margin}px 0;
+  }
+}
+
+@each $padding in $paddings {
+  .padding-top-#{$padding} {
+    padding-top: #{$padding}px;
+  }
+
+  .padding-right-#{$padding} {
+    padding-right: #{$padding}px;
+  }
+
+  .padding-bottom-#{$padding} {
+    padding-bottom: #{$padding}px;
+  }
+
+  .padding-left-#{$padding} {
+    padding-left: #{$padding}px;
+  }
+
+  .padding-left-right-#{$padding} {
+    padding: 0 #{$padding}px;
+  }
+
+  .padding-top-bottom-#{$padding} {
+    padding: #{$padding}px 0;
+  }
+}
