@@ -8,3 +8,89 @@ h1, h2, h3, h4, h5, h6, div, p, section, button, input {
   font-family: $font-family;
   color: $color;
 }
+
+@each $size in $font-sizes {
+  .font-size-#{$size} {
+    font-size: #{$size}px;
+  }
+}
+
+@each $margin in $margins {
+  .margin-#{$margin} {
+    margin: #{$margin}px;
+  }
+
+  .margin-top-#{$margin} {
+    margin-top: #{$margin}px;
+  }
+
+  .margin-right-#{$margin} {
+    margin-right: #{$margin}px;
+  }
+
+  .margin-bottom-#{$margin} {
+    margin-bottom: #{$margin}px;
+  }
+
+  .margin-left-#{$margin} {
+    margin-left: #{$margin}px;
+  }
+
+  .margin-left-right-#{$margin} {
+    margin: 0 #{$margin}px;
+  }
+
+  .margin-top-bottom-#{$margin} {
+    margin: #{$margin}px 0;
+  }
+}
+
+@each $padding in $paddings {
+  .padding-#{$padding} {
+    padding: #{$padding}px;
+  }
+
+  .padding-top-#{$padding} {
+    padding-top: #{$padding}px;
+  }
+
+  .padding-right-#{$padding} {
+    padding-right: #{$padding}px;
+  }
+
+  .padding-bottom-#{$padding} {
+    padding-bottom: #{$padding}px;
+  }
+
+  .padding-left-#{$padding} {
+    padding-left: #{$padding}px;
+  }
+
+  .padding-left-right-#{$padding} {
+    padding: 0 #{$padding}px;
+  }
+
+  .padding-top-bottom-#{$padding} {
+    padding: #{$padding}px 0;
+  }
+}
+
+.font-weight-regular {
+  font-weight: 400;
+}
+
+.font-weight-bold {
+  font-weight: 600;
+}
+
+.font-weight-bolder {
+  font-weight: 900;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}

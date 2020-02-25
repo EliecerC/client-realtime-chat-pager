@@ -1,0 +1,29 @@
+:local(.button) {
+  height: 40px;
+  background-color: #ff8200;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  min-width: 100px;
+  padding: 0 10px;
+  position: relative;
+  right: 0;
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    background-color: #ff6600;
+  }
+
+  &:focus {
+    border: 2px solid lightgrey;
+  }
+
+  &[disabled] {
+    opacity: 0.7;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}

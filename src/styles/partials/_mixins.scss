@@ -1,1 +1,18 @@
 // mixins definition
+// @mixin box-shadow($width, $height, $shadow, $spread, $color, $inset: false) {
+//   @if $inset {
+//     -webkit-box-shadow:inset $width $height $shadow $spread $color;
+//     -moz-box-shadow:inset $width $height $shadow $spread $color;
+//     box-shadow:inset $width $height $shadow $spread $color;
+//   } @else {
+//     -webkit-box-shadow: $width $height $shadow $spread $color;
+//     -moz-box-shadow: $width $height $shadow $spread $color;
+//     box-shadow: $width $height $shadow $spread $color;
+//   }
+// }
+
+@mixin box-shadow($shadows...) {
+  -webkit-box-shadow: $shadows;
+  -moz-box-shadow: $shadows;
+  box-shadow: $shadows;
+}

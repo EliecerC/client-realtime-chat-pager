@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const devEnvironment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  devtool: 'inline-source-map',
+  devtool: 'eval-source-map',
   devServer: {
     port: 3000,
     historyApiFallback: true,

@@ -1,0 +1,9 @@
+.box {
+  border: 1px solid $border-color;
+  border-radius: $border-radious;
+  margin: 40px auto;
+  width: 600px;
+  position: relative;
+
+  @include box-shadow(0 0 3px 0 rgba(192, 112, 112, 0.2));
+}
