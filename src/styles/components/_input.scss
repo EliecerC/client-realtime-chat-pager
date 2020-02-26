@@ -1,11 +1,15 @@
-.text-input {
+input[type=text] {
   height: 40px;
   border-radius: 10px;
   border: 1px solid $border-color-input;
   outline: none;
   padding: 0 10px;
   width: 100%;
-  
+  font-size: 14px;
+  color: $font-color-primary;
+
+  @include place-holder-color($font-color-secondary);
+
   &[disabled] {
     opacity: 0.7;
     pointer-events: none;

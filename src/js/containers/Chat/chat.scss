@@ -1,0 +1,29 @@
+:local(.root) {
+  form {
+    position: relative;
+
+    :local(.input) {
+      padding-right: 110px;
+      width: calc(100% - 120px);
+    }
+
+    :local(.messageButton) {
+      width: 100px;
+      float: right;
+      font-weight: 400;
+      top: 0;
+      border: none;
+      background-color: transparent;
+      color: #b0b0b0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      text-transform: capitalize;
+
+      &:hover {
+        color: #333333;
+      }
+    }
+  }
+}

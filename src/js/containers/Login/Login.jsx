@@ -1,13 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// components
 import Button from 'Components/inputs/Button/Button.jsx';
+import TextInput from 'Components/inputs/TextInput/TextInput.jsx';
+// context
+import AuthContext from '../../lib/context/auth/auth-context';
+// custom hooks
 import useInput from '../../lib/hooks/useInput';
 
-function Login(props) {
-  const {
-    handleLogin,
-    isAuthenticating
-  } = props;
+function Login() {
+  const { handleLogin, isAuthenticating } = React.useContext(AuthContext);
   const { value: username, inputProps: usernameProps } = useInput('');
 
   const handleSubmit = React.useCallback((e) => {
@@ -30,12 +31,11 @@ function Login(props) {
           Please enter your username
         </label>
         <br />
-        <input
+        <TextInput
           required
-          type="text"
           id="username"
           placeholder="username"
-          className="text-input font-size-14 font-weight-regular margin-top-4 margin-bottom-40"
+          className="font-size-14 font-weight-regular margin-top-4 margin-bottom-40"
           disabled={isAuthenticating}
           {...usernameProps}
         />
@@ -47,11 +47,6 @@ function Login(props) {
     </div>
   );
 }
-
-Login.propTypes = {
-  handleLogin: PropTypes.func,
-  isAuthenticating: PropTypes.bool
-};
 
 export default Login;
 

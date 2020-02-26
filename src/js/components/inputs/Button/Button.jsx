@@ -5,6 +5,7 @@ import styles from './button.scss';
 
 function Button(props) {
   const { className, ...rest } = props;
+
   return (
     <button
       className={clx(styles.button, className)}

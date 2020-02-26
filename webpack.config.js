@@ -11,7 +11,7 @@ module.exports = {
     historyApiFallback: true,
     contentBase: path.resolve(__dirname, 'dist')
   },
-  entry: path.resolve(__dirname, 'src/js/index'),
+  entry: ['babel-polyfill', path.resolve(__dirname, 'src/js/index')],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
