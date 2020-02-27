@@ -1,0 +1,57 @@
+.giphy-search-container {
+  margin: 0;
+  display: none;
+  height: 210px;
+  width: 100%;
+  padding: 5px;
+  padding-right: 10px;
+  overflow-y: scroll;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  
+  &.open {
+    display: block;
+  }
+
+  button {
+    cursor: pointer;
+    border: 1px solid #e8e8e8;
+
+    &:hover, 
+    &:focus {
+      background: #e8e8e8;
+    }
+  }
+
+  button.close {
+    padding: 5px;
+  }
+  
+  .results-container {
+    width: 100%;
+    
+    .result-item {
+      width: 24%;
+      float: left;
+      border: 2px solid #ffffff;
+    }
+  }
+  
+  .not-found {
+    text-align: center;
+  }
+
+  button.load-more {
+    width: 100%;
+    display: block;
+    clear: both;
+    text-align: center;
+    padding: 8px 0;
+    border: 1px solid #e8e8e8;
+    border-radius: 2px;
+    font-size: 14px;
+    outline: none;
+  }
+}

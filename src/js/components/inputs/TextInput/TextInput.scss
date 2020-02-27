@@ -1,11 +1,13 @@
-:local(.input) {
+.input-root {
   height: 40px;
   border-radius: 10px;
   border: 1px solid #d6d6d6;
   outline: none;
   padding: 0 10px;
-  max-width: calc(100% - 20px);
   width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 
   &[disabled] {
     opacity: 0.7;

@@ -1,7 +1,7 @@
 import React from 'react';
 import clx from 'classnames';
 import PropTypes from 'prop-types';
-import styles from './text-input.scss';
+import './TextInput.scss';
 
 function TextInput(props) {
   const { className, onChange, ...rest } = props;
@@ -17,7 +17,7 @@ function TextInput(props) {
   return (
     <input
       value={value}
-      className={clx(className, styles.input)}
+      className={clx('input-root', className)}
       {...rest}
       type="text"
       onChange={handleChange}

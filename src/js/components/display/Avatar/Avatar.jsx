@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clx from 'classnames';
-import styles from './avatar.scss';
 
 import { getAvatarUrl } from '../../../lib/helpers';
+
+import './Avatar.scss';
+
 
 function Avatar(props) {
   // eslint-disable-next-line max-len
@@ -20,7 +22,7 @@ function Avatar(props) {
         height: `${size}px`,
         width: `${size}px`
       }}
-      className={clx(styles.avatar, className)}
+      className={clx('avatar-container', className)}
       {...rest}
     >
       <img src={avatar} alt={name} />

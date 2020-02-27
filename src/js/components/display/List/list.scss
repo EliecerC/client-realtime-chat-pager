@@ -1,7 +1,7 @@
-:local(.list) {
+.list-root {
   list-style: none;
 
-  :local(.listItem) {
-    display: block;
+  .list-item {
+    display: flex;
   }
 }

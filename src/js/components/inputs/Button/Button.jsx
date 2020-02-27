@@ -1,14 +1,14 @@
 import React from 'react';
 import clx from 'classnames';
 import PropTypes from 'prop-types';
-import styles from './button.scss';
+import './Button.scss';
 
 function Button(props) {
   const { className, ...rest } = props;
 
   return (
     <button
-      className={clx(styles.button, className)}
+      className={clx('button-root', className)}
       {...rest}
     />
   );

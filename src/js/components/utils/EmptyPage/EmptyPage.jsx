@@ -1,34 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './empty-page.scss';
+import './EmptyPage.scss';
 
-function EmptyState(props) {
+function EmptyPage(props) {
   const { title, description, button } = props;
 
   return (
-    <div className={styles.root}>
+    <div className="empty-page-container">
       {title &&
-        <div className={styles.title}>
+        <div className="title">
           {title}
         </div>}
 
       {description &&
-        <div className={styles.description}>
+        <div className="description">
           {description}
         </div>}
 
       {button &&
-        <div className={styles.button}>
+        <div className="button">
           {button}
         </div>}
     </div>
   );
 }
 
-EmptyState.propTypes = {
+EmptyPage.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   button: PropTypes.element
 };
 
-export default EmptyState;
+export default EmptyPage;

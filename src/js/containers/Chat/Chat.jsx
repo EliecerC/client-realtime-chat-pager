@@ -1,12 +1,13 @@
 import React from 'react';
 import clx from 'classnames';
 // components
+import ChatMessage from 'Components/display/ChatMessage/ChatMessage.jsx';
 import Typers from 'Components/feedback/Typers/Typers.jsx';
 import Button from 'Components/inputs/Button/Button.jsx';
 import TextInput from 'Components/inputs/TextInput/TextInput.jsx';
-import List from 'Components/display/List/List.jsx';
-import ListItem from 'Components/display/List/ListItem.jsx';
+import List, { ListItem } from 'Components/display/List/List.jsx';
 import Avatar from 'Components/display/Avatar/Avatar.jsx';
+import GiphySearch from 'Components/utils/GiphySearch/GiphySearch.jsx';
 // context
 import SocketContext from '../../lib/context/socket/socket-context';
 import AuthContext from '../../lib/context/auth/auth-context';
@@ -15,7 +16,7 @@ import useInput from '../../lib/hooks/useInput';
 // helpers
 import { cbSetMessages } from '../../lib/helpers';
 // styles
-import styles from './chat.scss';
+import './Chat.scss';
 
 function Chat() {
   const { socket } = React.useContext(SocketContext);
@@ -24,6 +25,13 @@ function Chat() {
   const [messages, setMessages] = React.useState([]);
 
   const { reset, value: message, inputProps: messageProps } = useInput('');
+
+  const giphyQuery = React.useMemo(() => {
+    const indexOfPrefix = message.indexOf('/gif ');
+    if (indexOfPrefix > -1) {
+      return message.slice(indexOfPrefix + 5);
+    }
+  }, [message]);
 
   // TO DO: Fix on "unmount" set typing to false
   React.useEffect(() => {
@@ -34,7 +42,7 @@ function Chat() {
     if (socket.connected) socket.emit('typing', !!message);
   }, [message]);
 
-  const handleSendMessage = React.useCallback(e => {
+  const handleSendTextMessage = React.useCallback(async e => {
     e.preventDefault();
 
     if (message) {
@@ -42,6 +50,13 @@ function Chat() {
       reset();
     }
   }, [reset, message]);
+
+  const handleSendImageMessage = React.useCallback(({ url, alt }) => {
+    if (url) {
+      socket.emit('image-message', { alt, url });
+      reset();
+    }
+  }, []);
 
   React.useEffect(() => {
     if (socket.connected) {
@@ -62,27 +77,12 @@ function Chat() {
 
   const renderMessages = React.useCallback(() => {
     return (
-      <List>
+      <List style={{ minHeight: '40px' }}>
         {
           messages.map(message => (
             <ListItem key={message.time} className="margin-bottom-24">
               <Avatar name={message.username} />
-              <div style={{ display: 'inline-block', position: 'absolute' }}>
-                <strong>{message.username}</strong>&nbsp;
-                <span>{message.parsedDate}</span>
-                <p>
-                  {
-                    message.text
-                      .split('\n')
-                      .map((item, i) => (
-                        <React.Fragment key={`${i}`}>
-                          {item}
-                          <br />
-                        </React.Fragment>
-                      ))
-                  }
-                </p>
-              </div>
+              <ChatMessage message={message} />
             </ListItem>
           ))
         }
@@ -94,26 +94,31 @@ function Chat() {
     <div
       className={clx(
         'box',
-        styles.root,
+        'chat-container',
         'margin-top-40 padding-top-24 padding-left-24 padding-right-24'
       )}
     >
       {renderMessages()}
 
       {/* TO DO: move this block to component */}
-      <form onSubmit={handleSendMessage} className="margin-bottom-8">
+      <form onSubmit={handleSendTextMessage} className="margin-bottom-8">
         <TextInput
           id="message"
           name="message"
           autoComplete="off"
           placeholder="Message"
-          className={styles.input}
+          className="input"
           {...messageProps}
         />
-        <Button className={styles.messageButton}>
+        <Button className="message-button">
           Send
         </Button>
       </form>
+
+      <GiphySearch
+        query={giphyQuery}
+        onSelect={handleSendImageMessage}
+      />
 
       <Typers socket={socket} username={username} />
     </div>

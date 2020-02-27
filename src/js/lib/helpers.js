@@ -4,13 +4,13 @@
  * @returns {Promise}
  */
 export async function fetchApi({
-  uri,
+  url,
   method = 'GET',
   headers = {},
   queryParams = {},
   body
 }) {
-  const url = new URL(uri);
+  url = new URL(url);
 
   Object.keys(queryParams)
     .forEach(key =>
@@ -101,14 +101,14 @@ export function canBeGrouped(lastMessage, message) {
 }
 
 /**
- * returns new array of messages ready to be looped and rendered. this is for 'setMessages' useState setter.
+ * @function cbSetMessages - returns fuction with the current message in its scope that when called with messages returns new array of messages ready to be looped and rendered. this is for 'setMessages' useState setter.
  * @param {Object} message - new incoming message
  * @returns {Function}
  */
 export const cbSetMessages = message => messages => {
-  const lastMessage = message.slice(0).pop();
+  const lastMessage = messages.slice(0).pop();
   if (canBeGrouped(lastMessage, message)) {
-    lastMessage.text += `\n${message.text}`;
+    lastMessage.grouped = [...(lastMessage.grouped || []), message];
     return [...messages.slice(0, -1), lastMessage];
   } else {
     message.parsedDate = getHoursMinutesFormat(message.time);

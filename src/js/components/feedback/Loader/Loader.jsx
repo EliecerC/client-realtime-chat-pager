@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './loader.scss';
+import './Loader.scss';
 
 function Loader(props) {
   const { delay = 0 } = props;
@@ -22,7 +22,7 @@ function Loader(props) {
 
   // TO DO: add icon and animation to loader
   return (
-    <div className={styles.root}>
+    <div className="loader-container">
       <h1 className="font-size-14">
         Loading...
       </h1>

@@ -1,13 +1,15 @@
-:local(.root) {
+.chat-container {
   form {
     position: relative;
 
-    :local(.input) {
+    .input {
       padding-right: 110px;
-      width: calc(100% - 120px);
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
     }
 
-    :local(.messageButton) {
+    .message-button {
       width: 100px;
       float: right;
       font-weight: 400;
