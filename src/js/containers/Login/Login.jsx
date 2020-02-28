@@ -3,9 +3,9 @@ import React from 'react';
 import Button from 'Components/inputs/Button/Button.jsx';
 import TextInput from 'Components/inputs/TextInput/TextInput.jsx';
 // context
-import AuthContext from '../../lib/context/auth/auth-context';
+import AuthContext from 'Lib/context/auth/auth-context';
 // custom hooks
-import useInput from '../../lib/hooks/useInput';
+import useInput from 'Lib/hooks/useInput';
 
 const Login = () => {
   const { handleLogin, isAuthenticating } = React.useContext(AuthContext);
@@ -33,6 +33,7 @@ const Login = () => {
         <br />
         <TextInput
           required
+          autoFocus
           id="username"
           placeholder="username"
           className="font-size-14 font-weight-regular margin-top-4 margin-bottom-40"

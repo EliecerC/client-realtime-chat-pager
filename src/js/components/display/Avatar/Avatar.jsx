@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clx from 'classnames';
 
-import { getAvatarUrl } from '../../../lib/helpers';
+import { getAvatarUrl } from 'Lib/helpers';
 
 import './Avatar.scss';
 

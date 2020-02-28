@@ -11,12 +11,12 @@ import Avatar from 'Components/display/Avatar/Avatar.jsx';
 import GiphySearch from 'Components/utils/GiphySearch/GiphySearch.jsx';
 import Scrollable from 'Components/utils/Scrollable/Scrollable.jsx';
 // context
-import SocketContext from '../../lib/context/socket/socket-context';
-import AuthContext from '../../lib/context/auth/auth-context';
+import SocketContext from 'Lib/context/socket/socket-context';
+import AuthContext from 'Lib/context/auth/auth-context';
 // hooks
-import useInput from '../../lib/hooks/useInput';
+import useInput from 'Lib/hooks/useInput';
 // helpers
-import { cbSetMessages } from '../../lib/helpers';
+import { cbSetMessages } from 'Lib/helpers';
 // styles
 import './Chat.scss';
 
@@ -137,6 +137,7 @@ const ChatInput = props => {
   return (
     <form onSubmit={onSubmit} className="margin-bottom-8">
       <TextInput
+        autoFocus
         id="message"
         name="message"
         autoComplete="off"

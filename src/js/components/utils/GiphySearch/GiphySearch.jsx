@@ -4,9 +4,9 @@ import clx from 'classnames';
 // components
 import List, { ListItem } from 'Components/display/List/List.jsx';
 // hooks
-import usePrevious from '../../../lib/hooks/usePrevious';
+import usePrevious from 'Lib/hooks/usePrevious';
 // api
-import { searchGif } from '../../../lib/api/giphy';
+import { searchGif } from 'Lib/api/giphy';
 // styles
 import './GiphySearch.scss';
 

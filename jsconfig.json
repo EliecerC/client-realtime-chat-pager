@@ -5,7 +5,8 @@
     "allowSyntheticDefaultImports": false,
     "baseUrl": "./src/js/",
     "paths": {
-      "Components/*": ["components/*"],
+      "Lib/*": ["lib/*"],
+      "Components/*": ["components/*"]
     }
   },
   "include": ["src/**/*", "__mocks__"],

@@ -59,6 +59,7 @@ module.exports = {
   ],
   resolve: {
     alias: {
+      Lib: path.resolve(__dirname, 'src/js/lib'),
       Components: path.resolve(__dirname, 'src/js/components'),
     }
   }

@@ -29,6 +29,7 @@
       height: 100%;
       text-transform: capitalize;
 
+      &:focus,
       &:hover {
         color: #333333;
       }

@@ -1,7 +1,7 @@
 import React from 'react';
 // context
-import SocketContext from '../../../lib/context/socket/socket-context';
-import AuthContext from '../../../lib/context/auth/auth-context';
+import SocketContext from 'Lib/context/socket/socket-context';
+import AuthContext from 'Lib/context/auth/auth-context';
 
 const Typers = () => {
   const { socket } = React.useContext(SocketContext);

@@ -6,7 +6,7 @@ import {
 // components
 import Loader from 'Components/feedback/Loader/Loader.jsx';
 // context
-import AuthContext from '../../lib/context/auth/auth-context';
+import AuthContext from 'Lib/context/auth/auth-context';
 // application routes
 import routes from '../../routes';
 // application root styles
