@@ -64,23 +64,22 @@ const Chat = () => {
 
   React.useEffect(() => {
     if (socket.connected) {
+      // TO DO: check why sometimes message gets twice
       socket.on('message', message => {
-        console.log('message:', message);
-
         setMessages(cbSetMessages(message));
 
-        // TO DO: improve by detectin user scroll to message do not change scroll top
+        /**
+         *  TO DO: improve by detecting user scroll to a message.
+         *  and not change the scroll top on that escenario.
+         */
         if (chatListRef.current) {
           const height = chatListRef.current.scrollHeight;
           chatListRef.current.scrollTop = height;
         }
       });
 
-      socket.on('user-connected', user => {
-        console.log('user-connected:', user);
-      });
-
       socket.on('user-disconnected', user => {
+        // TO DO: maybe clean from typers?
         console.log('user-disconnected:', user);
       });
     }
@@ -111,7 +110,7 @@ const Chat = () => {
     >
       <Scrollable
         ref={chatListRef}
-        maxHeight="80vh"
+        maxHeight="650px"
         className="chat-scrollable"
       >
         {renderMessages()}

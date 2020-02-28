@@ -150,8 +150,8 @@ const GiftsNotFound = (props) => {
   if (isFetching) return null;
 
   return (
-    <div className="not-found font-size-32 padding-24">
-      No gifs were found for {query} ;(!
+    <div className="not-found font-size-24 padding-24">
+      No gifs were found for <strong>{`'${query}'`}</strong> ;(!
     </div>
   );
 };

@@ -27,6 +27,10 @@ function SocketProvider(props) {
         socket.close();
       };
 
+      socket.on('user-connected', user => {
+        console.log('user-connected:', user);
+      });
+
       socket.on('error', errorCallback('error'));
       socket.on('connect_error', errorCallback('connect_error'));
       socket.on('connect_timeout', errorCallback('connect_timeout'));

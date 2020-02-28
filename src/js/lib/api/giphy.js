@@ -1,6 +1,6 @@
 import { fetchApi } from '../helpers';
 
-// TO DO: env variables
+// TO DO: Add support for env variables
 const API_KEY = '3ORjPA19xVmFkz3FEQybtxhR7eDmZTPa';
 
 /**
