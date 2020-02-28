@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import AuthContext from './auth-context';
 import SocketContext from '../socket/socket-context';
 
-// TO DO: Add support for env variables
-const SOCKET_BASE_URI = 'https://pager-hiring.herokuapp.com/';
-
 function AuthProvider(props) {
   const { handleConnect } = React.useContext(SocketContext);
 
@@ -15,7 +12,8 @@ function AuthProvider(props) {
 
   const handleLogin = (username) => {
     setAuthenticating(true);
-    const socket = handleConnect(SOCKET_BASE_URI, { query: { username } });
+    // eslint-disable-next-line no-undef
+    const socket = handleConnect(process.env.SOCKET_BASE_URI, { query: { username } });
 
     socket.once('connect', () => {
       setUsername(username);

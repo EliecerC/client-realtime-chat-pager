@@ -1,8 +1,5 @@
 import { fetchApi } from '../helpers';
 
-// TO DO: Add support for env variables
-const API_KEY = '3ORjPA19xVmFkz3FEQybtxhR7eDmZTPa';
-
 /**
  * returns search results of query from giphy api.
  * Go to: https://developers.giphy.com/docs/api/endpoint#search
@@ -15,7 +12,8 @@ export function searchGif(query, options) {
   return fetchApi({
     url: 'https://api.giphy.com/v1/gifs/search',
     queryParams: {
-      api_key: API_KEY,
+      // eslint-disable-next-line no-undef
+      api_key: process.env.GIPHY_API_KEY,
       q: query,
       ...options
     }
