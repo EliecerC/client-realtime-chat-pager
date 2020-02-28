@@ -57,3 +57,6 @@ $ yarn deploy
 - There are some "TO DO" keywords in between the code, fix those.
 - Implement persistante of connection to the chat.
 - Fix warnings from webpack about oversized bundle.js and main.css.
+- Giphy selection with keyboard.
+- Better managment of socket status.
+- Implement redux, redux observable.
