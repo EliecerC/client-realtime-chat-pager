@@ -13,8 +13,7 @@ node_modules/
 .env.test
 
 # build
-build/**
-bundle.js**
+build/
 dist/
 
 # firebase
