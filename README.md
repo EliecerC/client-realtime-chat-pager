@@ -2,6 +2,8 @@ Client Realtime Chat for Pager
 
 #### Developmet
 
+You will need .env files
+
 Install yarn globally
 
 ``` bash
@@ -38,6 +40,8 @@ $ yarn eslint-fix
 
 #### Building
 
+- You will need .env files
+
 Generate build folder
 
 ``` bash
@@ -45,6 +49,8 @@ $ yarn build
 ```
 
 #### Deploy
+
+- You will need .env files and permission to deploy to this firebase app
 
 Generate build folder + deploy to firebase
 
