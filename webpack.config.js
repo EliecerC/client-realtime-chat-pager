@@ -13,7 +13,7 @@ module.exports = {
   },
   entry: ['babel-polyfill', path.resolve(__dirname, 'src/js/index')],
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js'
   },
   module: {

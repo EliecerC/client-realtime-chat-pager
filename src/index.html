@@ -10,5 +10,25 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAK_TCzXum6oxj_M959Mv5NygXFy3ZqhQs",
+        authDomain: "realtime-chat-pager.firebaseapp.com",
+        databaseURL: "https://realtime-chat-pager.firebaseio.com",
+        projectId: "realtime-chat-pager",
+        storageBucket: "realtime-chat-pager.appspot.com",
+        messagingSenderId: "1018822373029",
+        appId: "1:1018822373029:web:df4193e4eb2c610318674c"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
   </body>
 </html>
