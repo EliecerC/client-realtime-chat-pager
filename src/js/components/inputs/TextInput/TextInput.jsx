@@ -3,7 +3,7 @@ import clx from 'classnames';
 import PropTypes from 'prop-types';
 import './TextInput.scss';
 
-function TextInput(props) {
+const TextInput = (props) => {
   const { className, onChange, ...rest } = props;
   const [value, setValue] = React.useState('');
 
@@ -23,7 +23,7 @@ function TextInput(props) {
       onChange={handleChange}
     />
   );
-}
+};
 
 TextInput.propTypes = {
   className: PropTypes.string,

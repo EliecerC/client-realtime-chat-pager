@@ -1,5 +1,14 @@
 import React from 'react';
 
-export default function NoMatch() {
-  return <h3>NoMatch</h3>;
+function Page404() {
+  return (
+    <div
+      style={{ textAlign: 'center' }}
+      className="margin-40 padding-24 font-size-32"
+    >
+      <h3>Page 404</h3>
+    </div>
+  );
 }
+
+export default Page404;

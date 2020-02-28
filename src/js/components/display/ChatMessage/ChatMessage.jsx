@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './ChatMessage.scss';
 
-function ChatMessage(props) {
+const ChatMessage = (props) => {
   const { message } = props;
 
   const renderMessage = (msg) => {
     switch (msg.type) {
     case 'image':
-      return <ChatMessageImage message={msg} />;
+      return <ChatMessageImage key={message.time} message={msg} />;
     default:
-      return <ChatMessageText message={msg} />;
+      return <ChatMessageText key={message.time} message={msg} />;
     }
   };
 
@@ -24,33 +24,37 @@ function ChatMessage(props) {
       </div>
     </div>
   );
-}
+};
 
 ChatMessage.propTypes = {
   message: PropTypes.object
 };
 
-function ChatMessageText(props) {
+const ChatMessageText = (props) => {
   const { message } = props;
   return (
     <p>
       {message.text}
     </p>
   );
-}
+};
 
 ChatMessageText.propTypes = {
   message: PropTypes.object
 };
 
-function ChatMessageImage(props) {
+const ChatMessageImage = (props) => {
   const { message } = props;
   return (
     <p>
-      <img src={message.url} alt={message.alt} />
+      <img
+        height="200px"
+        src={message.url}
+        alt={message.alt}
+      />
     </p>
   );
-}
+};
 
 ChatMessageImage.propTypes = {
   message: PropTypes.object

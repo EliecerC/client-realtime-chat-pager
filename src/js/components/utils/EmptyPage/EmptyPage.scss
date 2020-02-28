@@ -1,4 +1,10 @@
 .empty-page-container {
+  text-align: center;
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 30vh;
+  padding: 24px;
+
   > div {
     width: 100%;
     text-align: center;
@@ -11,5 +17,7 @@
   .button,
   .description {
     font-size: 14px;
+    padding: 10px;
+    background-color: #ffffff;
   }
 }

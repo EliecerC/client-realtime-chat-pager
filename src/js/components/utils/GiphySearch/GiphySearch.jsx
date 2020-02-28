@@ -22,7 +22,7 @@ const cbSetData = (parsedData, offset) => prevData => {
   else return parsedData;
 };
 
-function GiphySearch(props) {
+const GiphySearch = (props) => {
   const {
     lang,
     query,
@@ -123,7 +123,7 @@ function GiphySearch(props) {
       />
     </div>
   );
-}
+};
 
 GiphySearch.defaultProps = {
   limit: 16,
@@ -144,7 +144,7 @@ GiphySearch.propTypes = {
   onSelect: PropTypes.func.isRequired
 };
 
-function GiftsNotFound(props) {
+const GiftsNotFound = (props) => {
   const { query, isFetching } = props;
 
   if (isFetching) return null;
@@ -154,14 +154,14 @@ function GiftsNotFound(props) {
       No gifs were found for {query} ;(!
     </div>
   );
-}
+};
 
 GiftsNotFound.propTypes = {
   query: PropTypes.string.isRequired,
   isFetching: PropTypes.bool.isRequired
 };
 
-function ButtonLoadMore(props) {
+const ButtonLoadMore = (props) => {
   const {
     total,
     isFetching,
@@ -181,7 +181,7 @@ function ButtonLoadMore(props) {
       Load More
     </button>
   );
-}
+};
 
 ButtonLoadMore.propTypes = {
   total: PropTypes.number.isRequired,

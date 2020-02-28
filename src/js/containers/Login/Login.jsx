@@ -7,7 +7,7 @@ import AuthContext from '../../lib/context/auth/auth-context';
 // custom hooks
 import useInput from '../../lib/hooks/useInput';
 
-function Login() {
+const Login = () => {
   const { handleLogin, isAuthenticating } = React.useContext(AuthContext);
   const { value: username, inputProps: usernameProps } = useInput('');
 
@@ -46,7 +46,6 @@ function Login() {
       </form>
     </div>
   );
-}
+};
 
 export default Login;
-

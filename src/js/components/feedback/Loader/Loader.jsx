@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Loader.scss';
 
-function Loader(props) {
+const Loader = (props) => {
   const { delay = 0 } = props;
   const [ready, setReady] = React.useState(delay === 0);
 
@@ -28,7 +28,7 @@ function Loader(props) {
       </h1>
     </div>
   );
-}
+};
 
 Loader.propTypes = {
   delay: PropTypes.number

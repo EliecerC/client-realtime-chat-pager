@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default function MockComponent() {
+const MockComponent = () => {
   return (
     <div>
       Mock Component
     </div>
   );
-}
+};
+
+export default MockComponent;

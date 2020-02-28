@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import clx from 'classnames';
 // components
 import ChatMessage from 'Components/display/ChatMessage/ChatMessage.jsx';
@@ -8,6 +9,7 @@ import TextInput from 'Components/inputs/TextInput/TextInput.jsx';
 import List, { ListItem } from 'Components/display/List/List.jsx';
 import Avatar from 'Components/display/Avatar/Avatar.jsx';
 import GiphySearch from 'Components/utils/GiphySearch/GiphySearch.jsx';
+import Scrollable from 'Components/utils/Scrollable/Scrollable.jsx';
 // context
 import SocketContext from '../../lib/context/socket/socket-context';
 import AuthContext from '../../lib/context/auth/auth-context';
@@ -18,7 +20,9 @@ import { cbSetMessages } from '../../lib/helpers';
 // styles
 import './Chat.scss';
 
-function Chat() {
+const Chat = () => {
+  const chatListRef = React.useRef();
+
   const { socket } = React.useContext(SocketContext);
   const { username } = React.useContext(AuthContext);
 
@@ -62,7 +66,14 @@ function Chat() {
     if (socket.connected) {
       socket.on('message', message => {
         console.log('message:', message);
+
         setMessages(cbSetMessages(message));
+
+        // TO DO: improve by detectin user scroll to message do not change scroll top
+        if (chatListRef.current) {
+          const height = chatListRef.current.scrollHeight;
+          chatListRef.current.scrollTop = height;
+        }
       });
 
       socket.on('user-connected', user => {
@@ -95,27 +106,24 @@ function Chat() {
       className={clx(
         'box',
         'chat-container',
-        'margin-top-40 padding-top-24 padding-left-24 padding-right-24'
+        'margin-top-40',
       )}
     >
-      {renderMessages()}
+      <Scrollable
+        ref={chatListRef}
+        maxHeight="80vh"
+        className="chat-scrollable"
+      >
+        {renderMessages()}
+      </Scrollable>
 
-      {/* TO DO: move this block to component */}
-      <form onSubmit={handleSendTextMessage} className="margin-bottom-8">
-        <TextInput
-          id="message"
-          name="message"
-          autoComplete="off"
-          placeholder="Message"
-          className="input"
-          {...messageProps}
-        />
-        <Button className="message-button">
-          Send
-        </Button>
-      </form>
+      <ChatInput
+        inputProps={messageProps}
+        onSubmit={handleSendTextMessage}
+      />
 
       <GiphySearch
+        className="chat-giphy-search"
         query={giphyQuery}
         onSelect={handleSendImageMessage}
       />
@@ -123,6 +131,30 @@ function Chat() {
       <Typers socket={socket} username={username} />
     </div>
   );
-}
+};
+
+const ChatInput = props => {
+  const { onSubmit, inputProps } = props;
+  return (
+    <form onSubmit={onSubmit} className="margin-bottom-8">
+      <TextInput
+        id="message"
+        name="message"
+        autoComplete="off"
+        placeholder="Message"
+        className="input"
+        {...inputProps}
+      />
+      <Button className="message-button">
+        Send
+      </Button>
+    </form>
+  );
+};
+
+ChatInput.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  inputProps: PropTypes.object.isRequired
+};
 
 export default Chat;

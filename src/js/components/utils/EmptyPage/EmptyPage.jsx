@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './EmptyPage.scss';
 
-function EmptyPage(props) {
+const EmptyPage = (props) => {
   const { title, description, button } = props;
 
   return (
@@ -23,7 +23,7 @@ function EmptyPage(props) {
         </div>}
     </div>
   );
-}
+};
 
 EmptyPage.propTypes = {
   title: PropTypes.string,

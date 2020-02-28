@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import clx from 'classnames';
 import './List.scss';
 
-function List(props) {
+const List = (props) => {
   const { className, ...rest } = props;
 
   return (
@@ -12,13 +12,13 @@ function List(props) {
       {...rest}
     />
   );
-}
+};
 
 List.propTypes = {
   className: PropTypes.string
 };
 
-function ListItem(props) {
+const ListItem = (props) => {
   const { className, ...rest } = props;
 
   return (
@@ -27,7 +27,7 @@ function ListItem(props) {
       {...rest}
     />
   );
-}
+};
 
 ListItem.propTypes = {
   className: PropTypes.string

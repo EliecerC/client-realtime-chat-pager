@@ -12,7 +12,7 @@ import routes from '../../routes';
 // application root styles
 import '../../../styles/application.scss';
 
-export default function App() {
+const App = () => {
   const { isAuthenticated } = React.useContext(AuthContext);
 
   return (
@@ -35,4 +35,6 @@ export default function App() {
       </Router>
     </Suspense>
   );
-}
+};
+
+export default App;

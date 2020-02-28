@@ -1,3 +1,9 @@
 webpack.config.js
 jsconfig.json
 __mocks__/
+
+# sass
+*.scss
+
+# testing
+*.snap

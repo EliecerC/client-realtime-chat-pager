@@ -3,7 +3,7 @@ import React from 'react';
 import SocketContext from '../../../lib/context/socket/socket-context';
 import AuthContext from '../../../lib/context/auth/auth-context';
 
-function Typers() {
+const Typers = () => {
   const { socket } = React.useContext(SocketContext);
   const { username } = React.useContext(AuthContext);
   const [typers, setTypers] = React.useState(null);
@@ -29,6 +29,6 @@ function Typers() {
       typing...
     </div>
   );
-}
+};
 
 export default Typers;

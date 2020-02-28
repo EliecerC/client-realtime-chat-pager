@@ -6,8 +6,7 @@ import { getAvatarUrl } from '../../../lib/helpers';
 
 import './Avatar.scss';
 
-
-function Avatar(props) {
+const Avatar = (props) => {
   // eslint-disable-next-line max-len
   const { size, name, color, length, fontSize, className, background, rounded, uppercase, bold, ...rest } = props;
   const avatar = React.useMemo(() => {
@@ -28,7 +27,7 @@ function Avatar(props) {
       <img src={avatar} alt={name} />
     </figure>
   );
-}
+};
 
 Avatar.defaultProps = {
   size: 40,

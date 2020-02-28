@@ -3,7 +3,7 @@ import clx from 'classnames';
 import PropTypes from 'prop-types';
 import './Button.scss';
 
-function Button(props) {
+const Button = (props) => {
   const { className, ...rest } = props;
 
   return (
@@ -12,7 +12,7 @@ function Button(props) {
       {...rest}
     />
   );
-}
+};
 
 Button.propTypes = {
   className: PropTypes.string

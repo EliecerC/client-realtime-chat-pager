@@ -80,10 +80,14 @@ export function groupMessages(messages) {
  * @returns {string}
  */
 export function getHoursMinutesFormat(dateString) {
+  const display = value => value < 10 ? `0${value}` : value;
   const date = new Date(dateString);
   const hours = date.getHours();
+  const hoursParsed = display(hours > 12 ? hours - 12 : hours);
+  const minutes = display(date.getMinutes());
   const meridiem = hours > 12 ? 'pm' : 'am';
-  return `${hours > 12 ? (hours - 12) : hours}:${date.getMinutes()} ${meridiem}`;
+
+  return `${hoursParsed}:${minutes} ${meridiem}`;
 }
 
 /**

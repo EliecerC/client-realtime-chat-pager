@@ -1,4 +1,10 @@
 .chat-container {
+  padding: 24px 24px 8px 24px;
+
+  .chat-scrollable {
+    margin-bottom: 24px;  
+  }
+
   form {
     position: relative;
 
@@ -27,5 +33,9 @@
         color: #333333;
       }
     }
+  }
+
+  .chat-giphy-search {
+    margin-bottom: 8px;
   }
 }
