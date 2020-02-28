@@ -90,7 +90,7 @@ const Chat = () => {
       <List style={{ minHeight: '40px' }}>
         {
           messages.map(message => (
-            <ListItem key={message.time} className="margin-bottom-24">
+            <ListItem key={message.key} className="margin-bottom-24">
               <Avatar name={message.username} />
               <ChatMessage message={message} />
             </ListItem>

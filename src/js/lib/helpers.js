@@ -105,12 +105,24 @@ export function canBeGrouped(lastMessage, message) {
 }
 
 /**
+ * Draft version of function that should return unique key per message
+ * @param {Object} message
+ * @returns {string}
+ */
+const messageKey = message => {
+  return `${message.username}-${message.time}`;
+};
+
+/**
  * @function cbSetMessages - returns fuction with the current message in its scope that when called with messages returns new array of messages ready to be looped and rendered. this is for 'setMessages' useState setter.
  * @param {Object} message - new incoming message
  * @returns {Function}
  */
 export const cbSetMessages = message => messages => {
   const lastMessage = messages.slice(0).pop();
+
+  message.key = messageKey(message);
+
   if (canBeGrouped(lastMessage, message)) {
     lastMessage.grouped = [...(lastMessage.grouped || []), message];
     return [...messages.slice(0, -1), lastMessage];

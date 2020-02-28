@@ -5,12 +5,12 @@ import './ChatMessage.scss';
 const ChatMessage = (props) => {
   const { message } = props;
 
-  const renderMessage = (msg) => {
+  const renderMessage = (msg, index) => {
     switch (msg.type) {
     case 'image':
-      return <ChatMessageImage key={message.time} message={msg} />;
+      return <ChatMessageImage key={`${index}-${message.key}`} message={msg} />;
     default:
-      return <ChatMessageText key={message.time} message={msg} />;
+      return <ChatMessageText key={`${index}-${message.key}`} message={msg} />;
     }
   };
 
