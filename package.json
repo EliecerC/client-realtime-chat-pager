@@ -10,7 +10,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "eslint-fix": "eslint --fix --ext .js --ext .jsx \"src/js/**/*\"",
-    "build": "webpack --mode production",
+    "build": "NODE_ENV=production webpack --mode production",
     "deploy": "webpack --mode production && firebase deploy --only hosting",
     "test": "jest"
   },
